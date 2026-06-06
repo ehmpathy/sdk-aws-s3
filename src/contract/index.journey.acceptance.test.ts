@@ -163,9 +163,9 @@ describe('sdkAwsS3 journey', () => {
       });
 
       then('del throws', async () => {
-        await expect(sdkAwsS3.del({ uri: 'http://bucket/key' })).rejects.toThrow(
-          'invalid s3 uri scheme',
-        );
+        await expect(
+          sdkAwsS3.del({ uri: 'http://bucket/key' }),
+        ).rejects.toThrow('invalid s3 uri scheme');
       });
     });
 
