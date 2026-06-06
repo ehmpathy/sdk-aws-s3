@@ -3,5 +3,5 @@
  * .why = exposes aws s3 operations
  */
 
-// todo: add s3 operations
-export {};
+export type { ContextSdkAwsS3 } from './contract';
+export { sdkAwsS3 } from './contract';

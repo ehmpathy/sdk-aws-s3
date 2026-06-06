@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`sdkAwsS3 del via { bucket, key } given: [case1] object to delete when: [t0] deleted then: returns void 1`] = `undefined`;
+
+exports[`sdkAwsS3 del via { bucket, key } given: [case2] delete absent object (idempotent) when: [t0] deleted then: returns void without error 1`] = `undefined`;
+
+exports[`sdkAwsS3 del via { uri } given: [case1] object to delete when: [t0] deleted then: returns void 1`] = `undefined`;
+
+exports[`sdkAwsS3 del via { uri } given: [case2] delete absent object (idempotent) when: [t0] deleted then: returns void without error 1`] = `undefined`;
+
+exports[`sdkAwsS3 get.all via { bucket, prefix } given: [case1] objects with prefix when: [t0] fetched then: returns array shape 1`] = `
+[
+  "a",
+  "b",
+]
+`;
+
+exports[`sdkAwsS3 get.all via { bucket, prefix } given: [case2] no objects match prefix when: [t0] fetched then: returns empty array 1`] = `[]`;
+
+exports[`sdkAwsS3 get.all via { uri } given: [case1] objects with prefix when: [t0] fetched then: returns array shape 1`] = `
+[
+  "c",
+  "d",
+]
+`;
+
+exports[`sdkAwsS3 get.all via { uri } given: [case2] no objects match prefix when: [t0] fetched then: returns empty array 1`] = `[]`;
+
+exports[`sdkAwsS3 get.one via { bucket, key } given: [case1] object exists when: [t0] fetched then: returns string content 1`] = `"acceptance-54a366a9-f2e0-4bd2-b40c-07f9926fa5b7"`;
+
+exports[`sdkAwsS3 get.one via { bucket, key } given: [case2] object absent when: [t0] fetched then: returns null 1`] = `null`;
+
+exports[`sdkAwsS3 get.one via { uri } given: [case1] object exists when: [t0] fetched then: returns string content 1`] = `"acceptance-uri-c3124ca2-d1e0-4b7d-8a50-88ca0944e950"`;
+
+exports[`sdkAwsS3 get.one via { uri } given: [case2] object absent when: [t0] fetched then: returns null 1`] = `null`;
+
+exports[`sdkAwsS3 set via { bucket, key } given: [case1] new object when: [t0] set then: returns void 1`] = `undefined`;
+
+exports[`sdkAwsS3 set via { uri } given: [case1] new object when: [t0] set then: returns void 1`] = `undefined`;
