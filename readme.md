@@ -16,24 +16,31 @@ npm install sdk-aws-s3
 ```ts
 import { sdkAwsS3 } from 'sdk-aws-s3';
 
-// get one
+// via uri
+const object = await sdkAwsS3.get.one({ uri: 's3://my-bucket/data.json' });
+const objects = await sdkAwsS3.get.all({ uri: 's3://my-bucket/uploads/' });
+await sdkAwsS3.set({ uri: 's3://my-bucket/data.json', body: '{"hello":"world"}' });
+await sdkAwsS3.del({ uri: 's3://my-bucket/data.json' });
+
+// via bucket + key
 const object = await sdkAwsS3.get.one({ bucket: 'my-bucket', key: 'data.json' });
-
-// get all (by prefix)
 const objects = await sdkAwsS3.get.all({ bucket: 'my-bucket', prefix: 'uploads/' });
-
-// set (idempotent upsert)
-await sdkAwsS3.set({
-  bucket: 'my-bucket',
-  key: 'data.json',
-  body: JSON.stringify({ hello: 'world' }),
-});
-
-// del (idempotent, no-op if not found)
+await sdkAwsS3.set({ bucket: 'my-bucket', key: 'data.json', body: '{"hello":"world"}' });
 await sdkAwsS3.del({ bucket: 'my-bucket', key: 'data.json' });
 ```
 
 that's it. no client setup, no configuration, no boilerplate.
+
+## uri format
+
+```
+s3://bucket/path/to/key
+```
+
+parsed as:
+- scheme: `s3://`
+- bucket: first path segment
+- key: rest of path
 
 # why
 
@@ -54,7 +61,7 @@ const body = await response.Body?.transformToString();
 // sdk-aws-s3 — simple, intuitive
 import { sdkAwsS3 } from 'sdk-aws-s3';
 
-const object = await sdkAwsS3.get.one({ bucket: 'my-bucket', key: 'data.json' });
+const object = await sdkAwsS3.get.one({ uri: 's3://my-bucket/data.json' });
 ```
 
 | footgun | pit-of-success |
@@ -76,3 +83,19 @@ all operations follow simple, idempotent semantics:
 | `sdkAwsS3.get.all` | list objects by prefix |
 | `sdkAwsS3.set` | upsert object (create or overwrite) |
 | `sdkAwsS3.del` | delete object, no-op if not found |
+
+## context injection
+
+all operations accept optional context for client reuse:
+
+```ts
+import { S3Client } from '@aws-sdk/client-s3';
+import { sdkAwsS3 } from 'sdk-aws-s3';
+
+const client = new S3Client({ region: 'us-east-1' });
+
+const object = await sdkAwsS3.get.one(
+  { uri: 's3://my-bucket/data.json' },
+  { aws: { s3: { client } } },
+);
+```

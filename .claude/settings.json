@@ -69,6 +69,12 @@
             "command": "./node_modules/.bin/rhachet roles boot --repo ehmpathy --role ergonomist",
             "timeout": 60,
             "author": "repo=ehmpathy/role=ergonomist"
+          },
+          {
+            "type": "command",
+            "command": "./node_modules/.bin/rhachet roles boot --role dispatcher",
+            "timeout": 10,
+            "author": "repo=bhuild/role=dispatcher"
           }
         ]
       },
