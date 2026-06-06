@@ -2,7 +2,7 @@
   "name": "sdk-aws-s3",
   "author": "ehmpathy",
   "description": "aws s3 sdk with idempotent get/set operations",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": "ehmpathy/sdk-aws-s3",
   "homepage": "https://github.com/ehmpathy/sdk-aws-s3",
   "keywords": [
