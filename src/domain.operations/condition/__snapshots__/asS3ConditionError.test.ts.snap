@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`asS3ConditionError given: [case1] a 412 PreconditionFailed error when: [t0] classified with an etag condition then: the message is actionable 1`] = `
+"✋ S3PreconditionFailedError: s3 precondition failed: object at test-bucket/test/lock.txt did not satisfy condition.etag="abc123". to fix: re-read the object via get.one with include.meta to get its latest etag, then retry with condition.etag set to that value.
+
+{
+  "ref": {
+    "bucket": "test-bucket",
+    "key": "test/lock.txt"
+  },
+  "condition": {
+    "etag": "\\"abc123\\""
+  }
+}"
+`;
+
+exports[`asS3ConditionError given: [case2] a 404 NoSuchKey error when: [t0] classified with an etag condition (conditional delete of absent) then: the message is actionable 1`] = `
+"✋ S3PreconditionFailedError: s3 precondition failed: object at test-bucket/test/lock.txt did not satisfy condition.etag="abc123". to fix: re-read the object via get.one with include.meta to get its latest etag, then retry with condition.etag set to that value.
+
+{
+  "ref": {
+    "bucket": "test-bucket",
+    "key": "test/lock.txt"
+  },
+  "condition": {
+    "etag": "\\"abc123\\""
+  }
+}"
+`;
+
+exports[`asS3ConditionError given: [case3] a 409 ConditionalRequestConflict error when: [t0] classified with a put-if-absent condition then: the message tells the caller to re-read and retry 1`] = `
+"💥 S3ConditionalConflictError: s3 conditional request conflict: a concurrent write raced the conditional write at test-bucket/test/lock.txt. to fix: re-read the object etag via get.one with include.meta and retry the conditional write.
+
+{
+  "ref": {
+    "bucket": "test-bucket",
+    "key": "test/lock.txt"
+  },
+  "condition": {
+    "etag": null
+  }
+}"
+`;

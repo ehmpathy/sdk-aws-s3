@@ -1,3 +1,4 @@
+import { ConstraintError } from 'helpful-errors';
 import { given, then, when } from 'test-fns';
 
 import { asS3Ref } from './asS3Ref';
@@ -23,7 +24,10 @@ describe('asS3Ref', () => {
 
   given('[case3] invalid scheme', () => {
     when('[t0] parsed', () => {
-      then('throws error', () => {
+      then('throws a typed ConstraintError with the scheme message', () => {
+        expect(() => asS3Ref({ uri: 'http://my-bucket/path' })).toThrow(
+          ConstraintError,
+        );
         expect(() => asS3Ref({ uri: 'http://my-bucket/path' })).toThrow(
           'invalid s3 uri scheme',
         );

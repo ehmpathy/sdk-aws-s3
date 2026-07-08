@@ -11,11 +11,11 @@ describe('del', () => {
 
   given('[case1] extant object', () => {
     const key = `test/${getUuid()}/to-delete.txt`;
-    const content = `delete-me-${getUuid()}`;
+    const body = `delete-me-${getUuid()}`;
 
     // setup: create the object
     beforeAll(async () => {
-      await set({ bucket, key, body: content });
+      await set({ bucket, key, body: body });
     });
 
     when('[t0] deleted', () => {
@@ -42,11 +42,11 @@ describe('del', () => {
 
   given('[case3] uri format', () => {
     const key = `test/${getUuid()}/uri-delete.txt`;
-    const content = `uri-delete-${getUuid()}`;
+    const body = `uri-delete-${getUuid()}`;
 
     // setup: create the object
     beforeAll(async () => {
-      await set({ bucket, key, body: content });
+      await set({ bucket, key, body: body });
     });
 
     when('[t0] deleted via uri', () => {

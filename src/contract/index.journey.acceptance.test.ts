@@ -26,39 +26,50 @@ describe('sdkAwsS3 journey', () => {
     });
 
     when('[t1] first object created', () => {
-      then('get.one returns content', async () => {
-        await sdkAwsS3.set({ bucket, key: keyA, body: 'content-a' });
+      then('get.one returns body', async () => {
+        await sdkAwsS3.set({ bucket, key: keyA, body: 'text-a' });
         const result = await sdkAwsS3.get.one({ bucket, key: keyA });
-        expect(result).toEqual('content-a');
+        expect(result).toEqual('text-a');
         expect(result).toMatchSnapshot();
       });
 
       then('get.all returns one object', async () => {
         const result = await sdkAwsS3.get.all({ bucket, prefix });
         expect(result).toHaveLength(1);
-        expect(result[0]).toEqual({ key: keyA, content: 'content-a' });
-        expect(result).toMatchSnapshot();
+        expect(result[0]).toEqual({ key: keyA, body: 'text-a' });
+        // snapshot keeps key + body; the random prefix is masked so it stays deterministic
+        expect(
+          result.map((r) => ({
+            key: r.key.replace(prefix, '<prefix>/'),
+            body: r.body,
+          })),
+        ).toMatchSnapshot();
       });
     });
 
     when('[t2] second object created', () => {
       then('get.all returns both objects', async () => {
-        await sdkAwsS3.set({ bucket, key: keyB, body: 'content-b' });
+        await sdkAwsS3.set({ bucket, key: keyB, body: 'text-b' });
         const result = await sdkAwsS3.get.all({ bucket, prefix });
         expect(result).toHaveLength(2);
-        expect(result.map((r) => r.content).sort()).toEqual([
-          'content-a',
-          'content-b',
-        ]);
-        expect(result).toMatchSnapshot();
+        expect(result.map((r) => r.body).sort()).toEqual(['text-a', 'text-b']);
+        // snapshot keeps key + body, sorted by key; the random prefix is masked for determinism
+        expect(
+          result
+            .map((r) => ({
+              key: r.key.replace(prefix, '<prefix>/'),
+              body: r.body,
+            }))
+            .sort((a, b) => a.key.localeCompare(b.key)),
+        ).toMatchSnapshot();
       });
     });
 
     when('[t3] object updated', () => {
-      then('get.one returns updated content', async () => {
-        await sdkAwsS3.set({ bucket, key: keyA, body: 'content-a-updated' });
+      then('get.one returns updated body', async () => {
+        await sdkAwsS3.set({ bucket, key: keyA, body: 'text-a-updated' });
         const result = await sdkAwsS3.get.one({ bucket, key: keyA });
-        expect(result).toEqual('content-a-updated');
+        expect(result).toEqual('text-a-updated');
         expect(result).toMatchSnapshot();
       });
     });
@@ -74,8 +85,14 @@ describe('sdkAwsS3 journey', () => {
       then('get.all returns other object', async () => {
         const result = await sdkAwsS3.get.all({ bucket, prefix });
         expect(result).toHaveLength(1);
-        expect(result[0]).toEqual({ key: keyB, content: 'content-b' });
-        expect(result).toMatchSnapshot();
+        expect(result[0]).toEqual({ key: keyB, body: 'text-b' });
+        // snapshot keeps key + body; the random prefix is masked so it stays deterministic
+        expect(
+          result.map((r) => ({
+            key: r.key.replace(prefix, '<prefix>/'),
+            body: r.body,
+          })),
+        ).toMatchSnapshot();
       });
     });
 
@@ -111,22 +128,27 @@ describe('sdkAwsS3 journey', () => {
     });
 
     when('[t1] objects created via uri', () => {
-      then('get.one returns content', async () => {
-        await sdkAwsS3.set({ uri: uriC, body: 'content-c' });
-        await sdkAwsS3.set({ uri: uriD, body: 'content-d' });
+      then('get.one returns body', async () => {
+        await sdkAwsS3.set({ uri: uriC, body: 'text-c' });
+        await sdkAwsS3.set({ uri: uriD, body: 'text-d' });
         const result = await sdkAwsS3.get.one({ uri: uriC });
-        expect(result).toEqual('content-c');
+        expect(result).toEqual('text-c');
         expect(result).toMatchSnapshot();
       });
 
       then('get.all returns both', async () => {
         const result = await sdkAwsS3.get.all({ uri: uriPrefixFull });
         expect(result).toHaveLength(2);
-        expect(result.map((r) => r.content).sort()).toEqual([
-          'content-c',
-          'content-d',
-        ]);
-        expect(result).toMatchSnapshot();
+        expect(result.map((r) => r.body).sort()).toEqual(['text-c', 'text-d']);
+        // snapshot keeps key + body, sorted by key; the random prefix is masked for determinism
+        expect(
+          result
+            .map((r) => ({
+              key: r.key.replace(uriPrefix, '<prefix>/'),
+              body: r.body,
+            }))
+            .sort((a, b) => a.key.localeCompare(b.key)),
+        ).toMatchSnapshot();
       });
     });
 

@@ -7,34 +7,34 @@ exports[`sdkAwsS3 journey given: [journey] full lifecycle via bucket/key when: [
 exports[`sdkAwsS3 journey given: [journey] full lifecycle via bucket/key when: [t1] first object created then: get.all returns one object 1`] = `
 [
   {
-    "content": "content-a",
-    "key": "journey/f70bba5c-b434-4f1d-9b76-a54e050989b5/a.txt",
+    "body": "text-a",
+    "key": "<prefix>/a.txt",
   },
 ]
 `;
 
-exports[`sdkAwsS3 journey given: [journey] full lifecycle via bucket/key when: [t1] first object created then: get.one returns content 1`] = `"content-a"`;
+exports[`sdkAwsS3 journey given: [journey] full lifecycle via bucket/key when: [t1] first object created then: get.one returns body 1`] = `"text-a"`;
 
 exports[`sdkAwsS3 journey given: [journey] full lifecycle via bucket/key when: [t2] second object created then: get.all returns both objects 1`] = `
 [
   {
-    "content": "content-a",
-    "key": "journey/f70bba5c-b434-4f1d-9b76-a54e050989b5/a.txt",
+    "body": "text-a",
+    "key": "<prefix>/a.txt",
   },
   {
-    "content": "content-b",
-    "key": "journey/f70bba5c-b434-4f1d-9b76-a54e050989b5/b.txt",
+    "body": "text-b",
+    "key": "<prefix>/b.txt",
   },
 ]
 `;
 
-exports[`sdkAwsS3 journey given: [journey] full lifecycle via bucket/key when: [t3] object updated then: get.one returns updated content 1`] = `"content-a-updated"`;
+exports[`sdkAwsS3 journey given: [journey] full lifecycle via bucket/key when: [t3] object updated then: get.one returns updated body 1`] = `"text-a-updated"`;
 
 exports[`sdkAwsS3 journey given: [journey] full lifecycle via bucket/key when: [t4] object deleted then: get.all returns other object 1`] = `
 [
   {
-    "content": "content-b",
-    "key": "journey/f70bba5c-b434-4f1d-9b76-a54e050989b5/b.txt",
+    "body": "text-b",
+    "key": "<prefix>/b.txt",
   },
 ]
 `;
@@ -48,16 +48,16 @@ exports[`sdkAwsS3 journey given: [journey] full lifecycle via uri when: [t0] obj
 exports[`sdkAwsS3 journey given: [journey] full lifecycle via uri when: [t1] objects created via uri then: get.all returns both 1`] = `
 [
   {
-    "content": "content-c",
-    "key": "journey/2d05d735-7b2d-48e0-a2ad-505c3d92487e/c.txt",
+    "body": "text-c",
+    "key": "<prefix>/c.txt",
   },
   {
-    "content": "content-d",
-    "key": "journey/2d05d735-7b2d-48e0-a2ad-505c3d92487e/d.txt",
+    "body": "text-d",
+    "key": "<prefix>/d.txt",
   },
 ]
 `;
 
-exports[`sdkAwsS3 journey given: [journey] full lifecycle via uri when: [t1] objects created via uri then: get.one returns content 1`] = `"content-c"`;
+exports[`sdkAwsS3 journey given: [journey] full lifecycle via uri when: [t1] objects created via uri then: get.one returns body 1`] = `"text-c"`;
 
 exports[`sdkAwsS3 journey given: [journey] full lifecycle via uri when: [t2] object deleted via uri then: get.one returns null 1`] = `null`;
