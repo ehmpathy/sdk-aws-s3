@@ -1,0 +1,72 @@
+🦉 the way speaks for itself
+
+🗿 route.stone.set
+   ├─ stone = 3.3.1.blueprint.product
+   ├─ passage = overruled
+   ├─ guard
+   │  ├─ artifacts
+   │  ├─ reviews
+   │  │   ├─ r1: repo-rules (l1, 5/5)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 0 nitpicks ✓
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i7.25aa3106fa52ba2d03.r1._.given.by_peer.repo-rules.md
+   │  │   ├─ r2: mech-failhides (l1, 5/5)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 0 nitpicks ✓
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i7.25aa3106fa52ba2d03.r2._.given.by_peer.mech-failhides.md
+   │  │   ├─ r3: mech-decode-friction (l1, 5/5)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 0 nitpicks ✓
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i7.25aa3106fa52ba2d03.r3._.given.by_peer.mech-decode-friction.md
+   │  │   ├─ r4: arch-opport-decomposition (l1, 5/5)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 0 nitpicks ✓
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i7.25aa3106fa52ba2d03.r4._.given.by_peer.arch-opport-decomposition.md
+   │  │   ├─ r5: arch-smell-scopeleaks (l1, 5/5)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 0 nitpicks ✓
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i7.25aa3106fa52ba2d03.r5._.given.by_peer.arch-smell-scopeleaks.md
+   │  │   ├─ r6: arch-hazards-maintenance (l1, 5/5)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 0 nitpicks ✓
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i7.25aa3106fa52ba2d03.r6._.given.by_peer.arch-hazards-maintenance.md
+   │  │   ├─ r7: arch-hazards-behavior (l1, 5/5)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 0 nitpicks ✓
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i7.25aa3106fa52ba2d03.r7._.given.by_peer.arch-hazards-behavior.md
+   │  │   ├─ r8: arch-ambiguous-terms (l1, 5/5)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 0 nitpicks ✓
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i7.25aa3106fa52ba2d03.r8._.given.by_peer.arch-ambiguous-terms.md
+   │  │   ├─ r9: ergo-acceptance-journey-coverage (l1, 5/5)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 0 nitpicks ✓
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i7.25aa3106fa52ba2d03.r9._.given.by_peer.ergo-acceptance-journey-coverage.md
+   │  │   ├─ r10: ergo-snapshot-visual-blemishes (l1, 5/5)
+   │  │   │   ├─ approved, cached
+   │  │   │   ├─ 0 blockers ✓
+   │  │   │   ├─ 0 nitpicks ✓
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i7.25aa3106fa52ba2d03.r10._.given.by_peer.ergo-snapshot-visual-blemishes.md
+   │  │   ├─ r11: enroll-blueprint-arch-defects (l3, 3/5)
+   │  │   │   ├─ 💥 malfunction
+   │  │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i8.25aa3106fa52ba2d03.r11._.given.by_peer.enroll-blueprint-arch-defects.md
+   │  │   └─ r12: enroll-blueprint-behavior-intent (l3, 3/5)
+   │  │       ├─ 💥 malfunction
+   │  │       └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/3.3.1.blueprint.product._.review.i8.25aa3106fa52ba2d03.r12._.given.by_peer.enroll-blueprint-behavior-intent.md
+   │  └─ judges
+   │      ├─ j1: $rhachet run --repo bhrain --skill route.stone.judge --mechanism reviewed? --stone $stone --route $route --allow-blockers 0 --allow-nitpicks 3
+   │      │   └─ finished 0.3s ✓
+   │      └─ j2: $rhachet run --repo bhrain --skill route.stone.judge --mechanism approved? --stone $stone --route $route
+   │          └─ finished 0.3s ✓
+   │
+   └─ the way continues, run
+      └─ rhx route.drive

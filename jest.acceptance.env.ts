@@ -3,7 +3,7 @@ import { join } from 'path';
 import util from 'util';
 
 // eslint-disable-next-line no-undef
-jest.setTimeout(90000); // we're calling downstream apis
+jest.setTimeout(300000); // we hit downstream apis (real s3; the conditional-write suite runs many sequential round-trips)
 
 // set console.log to not truncate nested objects
 util.inspect.defaultOptions.depth = 5;

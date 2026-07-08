@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`sdkAwsS3 mutex journey given: [journey] a single mutex key over its lifecycle when: [t1] a holder acquires the lock via put-if-absent then: the acquire envelope shape is locked 1`] = `
+{
+  "meta": {
+    "etag": Any<String>,
+  },
+}
+`;
+
+exports[`sdkAwsS3 mutex journey given: [journey] a single mutex key over its lifecycle when: [t2] a second acquirer races for the held lock then: the blocked-checkpoint message is clear and locked 1`] = `
+"✋ S3PreconditionFailedError: s3 precondition failed: object at ehmpathy-sdk-aws-s3-test-bucket/<key> did not satisfy condition.etag=null (expected absent). to fix: the object is already present — delete it first, or omit condition to overwrite unconditionally.
+
+{
+  "ref": {
+    "bucket": "ehmpathy-sdk-aws-s3-test-bucket",
+    "key": "<key>"
+  },
+  "condition": {
+    "etag": null
+  }
+}"
+`;
+
+exports[`sdkAwsS3 mutex journey given: [journey] a single mutex key over its lifecycle when: [t3] the holder releases via a fenced compare-and-delete then: the post-release absent state is locked 1`] = `null`;
+
+exports[`sdkAwsS3 mutex journey given: [journey] a single mutex key over its lifecycle when: [t4] a new holder re-acquires the freed lock then: the re-acquire envelope shape is locked 1`] = `
+{
+  "meta": {
+    "etag": Any<String>,
+  },
+}
+`;

@@ -10,46 +10,46 @@ describe('set', () => {
 
   given('[case1] new object', () => {
     const key = `test/${getUuid()}/new-object.txt`;
-    const content = `new-content-${getUuid()}`;
+    const body = `new-body-${getUuid()}`;
 
     when('[t0] set', () => {
       then('creates object', async () => {
-        await set({ bucket, key, body: content });
+        await set({ bucket, key, body: body });
         const result = await getOne({ bucket, key });
-        expect(result).toEqual(content);
+        expect(result).toEqual(body);
       });
     });
   });
 
   given('[case2] overwrite extant object', () => {
     const key = `test/${getUuid()}/overwrite.txt`;
-    const contentBefore = `before-${getUuid()}`;
-    const contentAfter = `after-${getUuid()}`;
+    const bodyBefore = `before-${getUuid()}`;
+    const bodyAfter = `after-${getUuid()}`;
 
     // setup: create the object
     beforeAll(async () => {
-      await set({ bucket, key, body: contentBefore });
+      await set({ bucket, key, body: bodyBefore });
     });
 
-    when('[t0] set with new content', () => {
-      then('overwrites content', async () => {
-        await set({ bucket, key, body: contentAfter });
+    when('[t0] set with new body', () => {
+      then('overwrites body', async () => {
+        await set({ bucket, key, body: bodyAfter });
         const result = await getOne({ bucket, key });
-        expect(result).toEqual(contentAfter);
+        expect(result).toEqual(bodyAfter);
       });
     });
   });
 
   given('[case3] uri format', () => {
     const key = `test/${getUuid()}/uri-set.txt`;
-    const content = `uri-set-${getUuid()}`;
+    const body = `uri-set-${getUuid()}`;
 
     when('[t0] set via uri', () => {
       then('creates object', async () => {
         const uri = `s3://${bucket}/${key}`;
-        await set({ uri, body: content });
+        await set({ uri, body: body });
         const result = await getOne({ bucket, key });
-        expect(result).toEqual(content);
+        expect(result).toEqual(body);
       });
     });
   });
@@ -58,7 +58,7 @@ describe('set', () => {
     const key = `test/${getUuid()}/empty.txt`;
 
     when('[t0] set with empty body', () => {
-      then('creates object with empty content', async () => {
+      then('creates object with empty body', async () => {
         await set({ bucket, key, body: '' });
         const result = await getOne({ bucket, key });
         expect(result).toEqual('');

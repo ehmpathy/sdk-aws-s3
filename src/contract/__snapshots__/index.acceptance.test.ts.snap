@@ -1,5 +1,153 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
+exports[`sdkAwsS3 conditional writes given: [case1] put-if-absent via condition.etag=null when: [t0] the object is absent then: the meta envelope shape is locked 1`] = `
+{
+  "meta": {
+    "etag": Any<String>,
+  },
+}
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case1] put-if-absent via condition.etag=null when: [t1] the object already exists then: the precondition error message is clear and actionable 1`] = `
+"✋ S3PreconditionFailedError: s3 precondition failed: object at ehmpathy-sdk-aws-s3-test-bucket/<key> did not satisfy condition.etag=null (expected absent). to fix: the object is already present — delete it first, or omit condition to overwrite unconditionally.
+
+{
+  "ref": {
+    "bucket": "ehmpathy-sdk-aws-s3-test-bucket",
+    "key": "<key>"
+  },
+  "condition": {
+    "etag": null
+  }
+}"
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case2] compare-and-set via condition.etag (optimistic concurrency) when: [t0] the etag matches the current version then: the overwritten body is locked 1`] = `"v2"`;
+
+exports[`sdkAwsS3 conditional writes given: [case2] compare-and-set via condition.etag (optimistic concurrency) when: [t1] the etag is stale then: the precondition error message is clear and actionable 1`] = `
+"✋ S3PreconditionFailedError: s3 precondition failed: object at ehmpathy-sdk-aws-s3-test-bucket/<key> did not satisfy condition.etag="deadbeefdeadbeefdeadbeefdeadbeef". to fix: re-read the object via get.one with include.meta to get its latest etag, then retry with condition.etag set to that value.
+
+{
+  "ref": {
+    "bucket": "ehmpathy-sdk-aws-s3-test-bucket",
+    "key": "<key>"
+  },
+  "condition": {
+    "etag": "\\"deadbeefdeadbeefdeadbeefdeadbeef\\""
+  }
+}"
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case3] compare-and-delete via condition.etag when: [t0] the etag matches then: the post-delete absent result is locked 1`] = `null`;
+
+exports[`sdkAwsS3 conditional writes given: [case4] get.one meta overload when: [t0] include.meta is requested then: the get.one meta envelope shape is locked 1`] = `
+{
+  "body": Any<String>,
+  "meta": {
+    "etag": Any<String>,
+  },
+}
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case4] get.one meta overload when: [t1] include.meta is requested but the object is absent then: the absent meta result is locked 1`] = `null`;
+
+exports[`sdkAwsS3 conditional writes given: [case5] compare-and-delete via condition.etag — negative paths when: [t0] the etag is stale then: the precondition error message is clear and actionable 1`] = `
+"✋ S3PreconditionFailedError: s3 precondition failed: object at ehmpathy-sdk-aws-s3-test-bucket/<key> did not satisfy condition.etag="deadbeefdeadbeefdeadbeefdeadbeef". to fix: re-read the object via get.one with include.meta to get its latest etag, then retry with condition.etag set to that value.
+
+{
+  "ref": {
+    "bucket": "ehmpathy-sdk-aws-s3-test-bucket",
+    "key": "<key>"
+  },
+  "condition": {
+    "etag": "\\"deadbeefdeadbeefdeadbeefdeadbeef\\""
+  }
+}"
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case5] compare-and-delete via condition.etag — negative paths when: [t1] the object is absent then: the precondition error message is clear and actionable 1`] = `
+"✋ S3PreconditionFailedError: s3 precondition failed: object at ehmpathy-sdk-aws-s3-test-bucket/<key> did not satisfy condition.etag="deadbeefdeadbeefdeadbeefdeadbeef". to fix: re-read the object via get.one with include.meta to get its latest etag, then retry with condition.etag set to that value.
+
+{
+  "ref": {
+    "bucket": "ehmpathy-sdk-aws-s3-test-bucket",
+    "key": "<key>"
+  },
+  "condition": {
+    "etag": "\\"deadbeefdeadbeefdeadbeefdeadbeef\\""
+  }
+}"
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case6] the 409 conflict type is a catchable public contract when: [t0] the exported conflict error is constructed then: its message is clear and actionable, and locked 1`] = `
+"💥 S3ConditionalConflictError: s3 conditional request conflict: a concurrent write raced the conditional write at <bucket>/k. to fix: re-read the object etag via get.one with include.meta and retry the conditional write.
+
+{
+  "ref": {
+    "bucket": "<bucket>",
+    "key": "k"
+  },
+  "condition": {
+    "etag": "\\"e\\""
+  }
+}"
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case7] get.one meta overload via { uri } when: [t0] include.meta is requested and the object exists then: the get.one-via-uri meta envelope shape is locked 1`] = `
+{
+  "body": Any<String>,
+  "meta": {
+    "etag": Any<String>,
+  },
+}
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case7] get.one meta overload via { uri } when: [t1] include.meta is requested but the object is absent then: the absent meta result is locked 1`] = `null`;
+
+exports[`sdkAwsS3 conditional writes given: [case8] unconditional set with include.meta (no condition) when: [t0] set without a condition but with include.meta then: the unconditional meta envelope shape is locked 1`] = `
+{
+  "meta": {
+    "etag": Any<String>,
+  },
+}
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case9] compare-and-set on an absent key when: [t0] the target key was never created then: the precondition error message is clear and actionable 1`] = `
+"✋ S3PreconditionFailedError: s3 precondition failed: object at ehmpathy-sdk-aws-s3-test-bucket/<key> did not satisfy condition.etag="deadbeefdeadbeefdeadbeefdeadbeef". to fix: re-read the object via get.one with include.meta to get its latest etag, then retry with condition.etag set to that value.
+
+{
+  "ref": {
+    "bucket": "ehmpathy-sdk-aws-s3-test-bucket",
+    "key": "<key>"
+  },
+  "condition": {
+    "etag": "\\"deadbeefdeadbeefdeadbeefdeadbeef\\""
+  }
+}"
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case10] conditional writes via { uri } when: [t0] put-if-absent on an absent object succeeds then: the put-if-absent-via-uri meta envelope shape is locked 1`] = `
+{
+  "meta": {
+    "etag": Any<String>,
+  },
+}
+`;
+
+exports[`sdkAwsS3 conditional writes given: [case10] conditional writes via { uri } when: [t1] put-if-absent on an extant object is blocked then: the precondition error message is clear and actionable 1`] = `
+"✋ S3PreconditionFailedError: s3 precondition failed: object at ehmpathy-sdk-aws-s3-test-bucket/<key> did not satisfy condition.etag=null (expected absent). to fix: the object is already present — delete it first, or omit condition to overwrite unconditionally.
+
+{
+  "ref": {
+    "bucket": "ehmpathy-sdk-aws-s3-test-bucket",
+    "key": "<key>"
+  },
+  "condition": {
+    "etag": null
+  }
+}"
+`;
+
 exports[`sdkAwsS3 del via { bucket, key } given: [case1] object to delete when: [t0] deleted then: returns void 1`] = `undefined`;
 
 exports[`sdkAwsS3 del via { bucket, key } given: [case2] delete absent object (idempotent) when: [t0] deleted then: returns void without error 1`] = `undefined`;
@@ -26,11 +174,11 @@ exports[`sdkAwsS3 get.all via { uri } given: [case1] objects with prefix when: [
 
 exports[`sdkAwsS3 get.all via { uri } given: [case2] no objects match prefix when: [t0] fetched then: returns empty array 1`] = `[]`;
 
-exports[`sdkAwsS3 get.one via { bucket, key } given: [case1] object exists when: [t0] fetched then: returns string content 1`] = `"acceptance-54a366a9-f2e0-4bd2-b40c-07f9926fa5b7"`;
+exports[`sdkAwsS3 get.one via { bucket, key } given: [case1] object exists when: [t0] fetched then: returns string body 1`] = `"acceptance-text"`;
 
 exports[`sdkAwsS3 get.one via { bucket, key } given: [case2] object absent when: [t0] fetched then: returns null 1`] = `null`;
 
-exports[`sdkAwsS3 get.one via { uri } given: [case1] object exists when: [t0] fetched then: returns string content 1`] = `"acceptance-uri-c3124ca2-d1e0-4b7d-8a50-88ca0944e950"`;
+exports[`sdkAwsS3 get.one via { uri } given: [case1] object exists when: [t0] fetched then: returns string body 1`] = `"acceptance-uri-text"`;
 
 exports[`sdkAwsS3 get.one via { uri } given: [case2] object absent when: [t0] fetched then: returns null 1`] = `null`;
 

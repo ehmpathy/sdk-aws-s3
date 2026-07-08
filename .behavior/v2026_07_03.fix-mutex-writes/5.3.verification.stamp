@@ -1,0 +1,288 @@
+🦉 the way speaks for itself
+
+🗿 route.stone.set
+   ├─ stone = 5.3.verification
+   ├─ passage = malfunction
+   ├─ reason = reviewer or judge malfunctioned
+   ├─ options
+   │  ├─ overrule the malfunction
+   │  │  └─ rhx route.stone.set --stone 5.3.verification --as overruled
+   │  └─ or fix the reviewer, then retry
+   └─ guard
+      ├─ artifacts
+      │   ├─ $route/5.3.verification.yield.md
+      │   └─ src/**/*
+      ├─ reviews
+      │   ├─ r1: repo-rules (l1, 3/3)
+      │   │   ├─ approved, cached
+      │   │   ├─ 0 blockers ✓
+      │   │   ├─ 0 nitpicks ✓
+      │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i4.0ab22d0536a51d685e.r1._.given.by_peer.repo-rules.md
+      │   ├─ r2: ergo-contract-snapshots (l1, 3/3)
+      │   │   ├─ approved, cached
+      │   │   ├─ 0 blockers ✓
+      │   │   ├─ 0 nitpicks ✓
+      │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i4.0ab22d0536a51d685e.r2._.given.by_peer.ergo-contract-snapshots.md
+      │   ├─ r3: mech-external-contracts (l1, 3/3)
+      │   │   ├─ approved, cached
+      │   │   ├─ 0 blockers ✓
+      │   │   ├─ 0 nitpicks ✓
+      │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i4.0ab22d0536a51d685e.r3._.given.by_peer.mech-external-contracts.md
+      │   ├─ r4: ergo-acceptance-journey-coverage (l1, 3/3)
+      │   │   ├─ approved, cached
+      │   │   ├─ 0 blockers ✓
+      │   │   ├─ 0 nitpicks ✓
+      │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i4.0ab22d0536a51d685e.r4._.given.by_peer.ergo-acceptance-journey-coverage.md
+      │   ├─ r5: ergo-snapshot-visual-blemishes (l1, 3/3)
+      │   │   ├─ approved, cached
+      │   │   ├─ 0 blockers ✓
+      │   │   ├─ 0 nitpicks ✓
+      │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i4.0ab22d0536a51d685e.r5._.given.by_peer.ergo-snapshot-visual-blemishes.md
+      │   ├─ r6: mech-given-when-then (l1, 3/3)
+      │   │   ├─ approved, cached
+      │   │   ├─ 0 blockers ✓
+      │   │   ├─ 0 nitpicks ✓
+      │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i4.0ab22d0536a51d685e.r6._.given.by_peer.mech-given-when-then.md
+      │   ├─ r7: mech-test-intent (l1, 3/3)
+      │   │   ├─ exhausted, cached
+      │   │   ├─ 2 blockers 🔴
+      │   │   ├─ 0 nitpicks ✓
+      │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i4.0ab22d0536a51d685e.r7._.given.by_peer.mech-test-intent.md
+      │   ├─ r8: mech-test-scope-purity (l1, 0/3)
+      │   │   ├─ constraint 0.8s
+      │   │   ├─ 0 blockers ✓
+      │   │   ├─ 0 nitpicks ✓
+      │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i5.0ab22d0536a51d685e.r8._.given.by_peer.mech-test-scope-purity.md
+      │   ├─ r9: enroll-verif-snapshot-coverage (l3, 0/3)
+      │   │   ├─ 💥 malfunction
+      │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i5.0ab22d0536a51d685e.r9._.given.by_peer.enroll-verif-snapshot-coverage.md
+      │   ├─ r10: enroll-verif-snapshot-blemishes (l3, 0/3)
+      │   │   ├─ 💥 malfunction
+      │   │   └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i5.0ab22d0536a51d685e.r10._.given.by_peer.enroll-verif-snapshot-blemishes.md
+      │   └─ r11: enroll-verif-test-intent (l3, 0/3)
+      │       ├─ 💥 malfunction
+      │       └─ review: .behavior/v2026_07_03.fix-mutex-writes/.reviews/peer/5.3.verification._.review.i5.0ab22d0536a51d685e.r11._.given.by_peer.enroll-verif-test-intent.md
+      └─ judges
+          └─ j1: $rhachet run --repo bhrain --skill route.stone.judge --mechanism reviewed? --stone $stone --route $route --allow-blockers 0 --allow-nitpicks 0
+              └─ finished 1.2s ✓
+
+────────────────────────────────────────────────────────────────
+
+🔎 review 9
+   ├─ stdout
+   │  ├─
+   │  │
+   │  │  ## Review: snapshot coverage + journey coverage
+   │  │  
+   │  │  ### snapshot coverage — `index.acceptance.test.ts`
+   │  │  
+   │  │  | endpoint | path | snapshot? | property matcher? |
+   │  │  |---|---|---|---|
+   │  │  | `get.one` | bucket/key present | ✅ | n/a (string body) |
+   │  │  | `get.one` | bucket/key absent | ✅ | n/a (null) |
+   │  │  | `get.one` | uri present | ✅ | n/a |
+   │  │  | `get.one` | uri absent | ✅ | n/a |
+   │  │  | `get.one` | with meta, present | ✅ | ✅ `{ meta: { etag: expect.any(String) } }` |
+   │  │  | `get.one` | with meta, absent | ✅ | n/a |
+   │  │  | `get.one` | with meta, uri | ✅ | ✅ |
+   │  │  | `get.all` | bucket/prefix with objects | ⚠️ partial | n/a — snaps only `body` array, not full shape |
+   │  │  | `get.all` | bucket/prefix empty | ✅ | n/a |
+   │  │  | `get.all` | uri with objects | ⚠️ partial | n/a — same |
+   │  │  | `get.all` | uri empty | ✅ | n/a |
+   │  │  | `set` | new object | ✅ | n/a (void → `undefined`) |
+   │  │  | `set` | overwrite | ❌ no snap on `set` result | verified behaviorally via `get.one` |
+   │  │  | `set` | with include.meta | ✅ | ✅ `{ meta: { etag: expect.any(String) } }` |
+   │  │  | `set` | put-if-absent, absent | ✅ | ✅ `{ meta: { etag: expect.any(String) } }` |
+   │  │  | `set` | put-if-absent, extant | ✅ error message snap | key masked for determinism |
+   │  │  | `set` | compare-and-set, matching | ✅ | n/a |
+   │  │  | `set` | compare-and-set, stale | ✅ error message snap | key masked |
+   │  │  | `set` | compare-and-set, absent | ✅ error message snap | key masked |
+   │  │  | `set` | uri conditional | ✅ | ✅ |
+   │  │  | `del` | extant | ✅ | n/a |
+   │  │  | `del` | absent (idempotent) | ✅ | n/a |
+   │  │  | `del` | uri | ✅ | n/a |
+   │  │  | `del` | compare-and-delete, matching | ✅ post-delete null | n/a |
+   │  │  | `del` | compare-and-delete, stale | ✅ error message snap | key masked |
+   │  │  | `del` | compare-and-delete, absent | ✅ error message snap | key masked |
+   │  │  | errors (invalid scheme, malformed) | — | ✅ throws-only, no snap needed | — |
+   │  │  | `S3ConditionalConflictError` | 409 in-memory | ✅ message snap | bucket masked |
+   │  │  
+   │  │  **`get.all` partial coverage**: keys contain random UUIDs, so only `body` arrays are snapped. Shape is implicitly verified by the `toEqual` assertions on key+body pairs. This is a reasonable workaround, but it means key formatting drift in `get.all` output won't be caught by snapshot review. Acceptable as-is.
+   │  │  
+   │  │  **`set` overwrite no snap**: the overwrite case verifies the state via a subsequent `get.one`. The `set` return itself is void. Not a gap.
+   │  │  
+   │  │  ---
+   │  │  
+   │  │  ### journey coverage
+   │  │  
+   │  │  | journey | file | status |
+   │  │  |---|---|---|
+   │  │  | base CRUD lifecycle (bucket/key) | `index.journey.acceptance.test.ts` | ✅ complete |
+   │  │  | base CRUD lifecycle (uri) | `index.journey.acceptance.test.ts` | ✅ complete |
+   │  │  | error cases (invalid scheme, malformed) | `index.journey.acceptance.test.ts` | ✅ complete |
+   │  │  | mutex lifecycle (full sequence) | `index.mutex.journey.acceptance.test.ts` | ✅ complete |
+   │  │  
+   │  │  All four user-facing journeys are covered. The mutex lifecycle is properly isolated into its own file.
+   │  │  
+   │  │  ---
+   │  │  
+   │  │  ### issue found: redundant `then` in mutex journey t3
+   │  │  
+   │  │  `src/contract/index.mutex.journey.acceptance.test.ts:94-103`
+   │  │  
+   │  │  ```ts
+   │  │  when('[t3] the holder releases via a fenced compare-and-delete', () => {
+   │  │    then('the fenced release freed the lock', () => {
+   │  │      expect(scene.afterRelease).toBeNull();           // ← this is the entire body
+   │  │    });
+   │  │  
+   │  │    then('the post-release absent state is locked', () => {
+   │  │      expect(scene.afterRelease).toBeNull();           // ← exact duplicate
+   │  │      expect(scene.afterRelease).toMatchSnapshot();
+   │  │    });
+   │  │  });
+   │  │  ```
+   │  │  
+   │  │  The first `then` is a strict subset of the second. It adds no independent behavioral claim — the null assertion is repeated, and the snapshot in the second block already locks that null. This violates the one-claim-per-then principle and creates reader confusion about what distinct thing is being verified.
+   │  │  
+   │  │  **Fix**: remove the first `then` block entirely. The second covers both the assertion and the snapshot.
+   │  │  
+   │  │  ```ts
+   │  │  when('[t3] the holder releases via a fenced compare-and-delete', () => {
+   │  │    then('the fenced release freed the lock (null + snapped)', () => {
+   │  │      expect(scene.afterRelease).toBeNull();
+   │  │      expect(scene.afterRelease).toMatchSnapshot();
+   │  │    });
+   │  │  });
+   │  │  ```
+   │  │  
+   │  │  Or split into genuinely distinct claims:
+   │  │  
+   │  │  ```ts
+   │  │  when('[t3] the holder releases via a fenced compare-and-delete', () => {
+   │  │    then('the lock is absent', () => {
+   │  │      expect(scene.afterRelease).toBeNull();
+   │  │    });
+   │  │  
+   │  │    then('the post-release absent state is locked', () => {
+   │  │      expect(scene.afterRelease).toMatchSnapshot();
+   │  │    });
+   │  │  });
+   │  │  ```
+   │  │  
+   │  │  ---
+   │  │  
+   │  │  ### verdict
+   │  │  
+   │  │  Snapshot coverage: **✅ strong** — all return-value shapes are snapped with appropriate property matchers on live values (ETags). The `get.all` partial snap and `set` overwrite void result are both defensible.
+   │  │  
+   │  │  Journey coverage: **✅ complete** — base CRUD, URI variants, error paths, and mutex lifecycle are all present.
+   │  │  
+   │  │  One **nitpick**: redundant `then` in mutex journey t3 (lines 94-103). Not a functional gap but a clean test structure issue.
+   │  │
+   │  └─
+   ├─ stderr
+   │  ├─
+   │  │
+   │  │  Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+   │  │  
+   │  │  💥 malfunction: reviewer output lacks a numeric blocker/nitpick count (expected `N blockers` and `N nitpicks`; use `0 blockers` / `0 nitpicks` to declare clean). see .agent/repo=bhrain/role=reviewer/briefs/contract.reviewer-output.md
+   │  │
+   │  └─
+   └─ passage blocked
+      ├─ blocked by malfunction
+      └─ exit code: 1 💥
+
+🔎 review 10
+   ├─ stdout
+   │  ├─
+   │  │
+   │  │  Here are the blemishes found across the three snapshot files:
+   │  │  
+   │  │  ---
+   │  │  
+   │  │  **Blemish 1 — Etag double-quoting is visually noisy**
+   │  │  
+   │  │  In the JSON context block of error messages, AWS ETags (which include surrounding quotes as part of their value) appear as:
+   │  │  ```
+   │  │  "etag": "\"deadbeefdeadbeefdeadbeefdeadbeef\""
+   │  │  ```
+   │  │  And in the raw `.snap` file as `"\\"deadbeefdeadbeefdeadbeefdeadbeef\\""` — the nesting of quote escapes makes it hard to quickly read during a PR review. The inline text form is also ambiguous: `condition.etag="deadbeef..."` — it's unclear if the outer quotes are string delimiters or part of the etag value.
+   │  │  
+   │  │  ---
+   │  │  
+   │  │  **Blemish 2 — Fix hint misleads when the object is absent**
+   │  │  
+   │  │  `case5[t1]` is labeled "the object is absent" but the error hint says:
+   │  │  > "to fix: re-read the object via get.one with include.meta to get its latest etag, then retry with condition.etag set to that value."
+   │  │  
+   │  │  There's no object to re-read — it's absent. Same issue in `case9` ("compare-and-set on an absent key / the target key was never created"). Both cases have the stale-etag hint even though the actual problem is the key doesn't exist. The hint should say something like "the object does not exist — create it first before attempting a conditional update."
+   │  │  
+   │  │  ---
+   │  │  
+   │  │  **Blemish 3 — Mutex journey `[t2]` fix hint doesn't fit the mutex mental model**
+   │  │  
+   │  │  The blocked-acquirer error says:
+   │  │  > "to fix: the object is already present — delete it first, or omit condition to overwrite unconditionally."
+   │  │  
+   │  │  But in a mutex context, neither option is appropriate. A caller reading this error during a mutex acquire attempt doesn't want to delete the lock or overwrite it — they want to back off and retry. The hint actively conflicts with the mutex pattern being demonstrated.
+   │  │  
+   │  │  ---
+   │  │  
+   │  │  **Blemish 4 — Emoji inconsistency between error types (minor)**
+   │  │  
+   │  │  - `S3PreconditionFailedError` opens with `✋`
+   │  │  - `S3ConditionalConflictError` opens with `💥`
+   │  │  
+   │  │  May be intentional (the latter is a more alarming situation — concurrent race), but worth confirming it's deliberate and not drift.
+   │  │  
+   │  │  ---
+   │  │  
+   │  │  **No blemishes** found in `index.journey.acceptance.test.ts.snap` — the `content` → `body` rename and UUID → `<prefix>/filename.txt` key pattern both look clean and intentional.
+   │  │
+   │  └─
+   ├─ stderr
+   │  ├─
+   │  │
+   │  │  Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+   │  │  
+   │  │  💥 malfunction: reviewer output lacks a numeric blocker/nitpick count (expected `N blockers` and `N nitpicks`; use `0 blockers` / `0 nitpicks` to declare clean). see .agent/repo=bhrain/role=reviewer/briefs/contract.reviewer-output.md
+   │  │
+   │  └─
+   └─ passage blocked
+      ├─ blocked by malfunction
+      └─ exit code: 1 💥
+
+🔎 review 11
+   ├─ stdout
+   │  ├─
+   │  │
+   │  │  **No test intent violations found.**
+   │  │  
+   │  │  Every test file that appears "modified" in git status (`M`, `MM`, `AM`) is actually a **new file** on this branch — all diffs show `new file mode 100644` from `/dev/null`. None of these files existed on `main`.
+   │  │  
+   │  │  Files reviewed:
+   │  │  - `src/contract/index.acceptance.test.ts` — new
+   │  │  - `src/contract/index.journey.acceptance.test.ts` — new
+   │  │  - `src/contract/index.mutex.journey.acceptance.test.ts` — new
+   │  │  - `src/domain.operations/asS3Ref.test.ts` — new
+   │  │  - `src/domain.operations/del.integration.test.ts` — new
+   │  │  - `src/domain.operations/getAll.integration.test.ts` — new
+   │  │  - `src/domain.operations/getOne.integration.test.ts` — new
+   │  │  - `src/domain.operations/set.integration.test.ts` — new
+   │  │  - All associated `__snapshots__/` files — new
+   │  │  
+   │  │  No pre-existing assertions were loosened, removed, or had their criteria changed. The branch is **clean** — only net-new test coverage was added.
+   │  │
+   │  └─
+   ├─ stderr
+   │  ├─
+   │  │
+   │  │  Warning: no stdin data received in 3s, proceeding without it. If piping from a slow command, redirect stdin explicitly: < /dev/null to skip, or wait longer.
+   │  │  
+   │  │  💥 malfunction: reviewer output lacks a numeric blocker/nitpick count (expected `N blockers` and `N nitpicks`; use `0 blockers` / `0 nitpicks` to declare clean). see .agent/repo=bhrain/role=reviewer/briefs/contract.reviewer-output.md
+   │  │
+   │  └─
+   └─ passage blocked
+      ├─ blocked by malfunction
+      └─ exit code: 1 💥
